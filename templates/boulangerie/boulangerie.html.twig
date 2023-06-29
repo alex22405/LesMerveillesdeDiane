@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boulangerie{% endblock %}
+
+{% block body %}
+    <!--------------- BANNIERE ---------------->
+
+    {% include '_partials/_banner.html.twig' with {'title': 'Viennoiseries', 'banner_class': 'boulangerie_banner'} %}
+
+    <!--------------- MENU ---------------->
+    <section class="menu" id="menu">
+        <div class="menu_content">
+            <div class="menu_content_wrapper">
+                <div class="menu_content_box">
+                    <article>
+                        <img src="assets/img/croissant.jpg" alt="">
+                    </article>
+                </div>
+                <div>
+                    <h3>Croissant</h3>
+                </div>
+                <p>
+                    Description
+                </p>
+            </div>
+            <div class="menu_content_wrapper">
+                <div class="menu_content_box">
+                    <article>
+                        <img src="assets/img/chausson.jpg" alt="">
+                    </article>
+                </div>
+                <div>
+                    <h3>chausson aux pommes</h3>
+                </div>
+                <p>
+                    Description
+                </p>
+            </div>
+            <div class="menu_content_wrapper">
+                <div class="menu_content_box">
+                    <article>
+                        <img src="assets/img/painchoco.jpg" alt="">
+                    </article>
+                </div>
+                <div>
+                    <h3>PAIN AU CHOCOLAT</h3>
+                </div>
+                <p>
+                    Description
+                </p>
+            </div>
+            <div class="menu_content_wrapper">
+                <div class="menu_content_box">
+                    <article>
+                        <img src="assets/img/painraisin.jpg" alt="">
+                    </article>
+                </div>
+                <div>
+                    <h3>PAIN AUX RAISINS</h3>
+                </div>
+                <p>
+                    Description
+                </p>
+            </div>
+    </section>
+{% endblock %}

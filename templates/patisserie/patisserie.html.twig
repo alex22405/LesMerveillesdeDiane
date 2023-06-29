@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pâtisserie{% endblock %}
+
+{% block body %}
+    <!--------------- BANNIERE ---------------->
+
+    {% include '_partials/_banner.html.twig' with {'title': 'Pâtisseries', 'banner_class': 'patisserie_banner'} %}
+
+
+    <!--------------- MENU ---------------->
+    <section class="menu" id="menu">
+        <div class="menu_content">
+            <div class="menu_content_wrapper">
+                <div class="menu_content_box">
+                    <article>
+                        <img src="assets/img/patisserie_01.png" alt="">
+                    </article>
+                </div>
+                <div>
+                    <h3>MACARONS</h3>
+                </div>
+                <p>
+                    Description
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="contact">
+        <div class="contact_text">
+            <h1>Notre équipe est à votre écoute</h1>
+            <p>
+                Notre équipe est toujours disponible pour vous aider. Si vous avez des questions, des problèmes ou des
+                suggestions, veuillez remplir le formulaire ci-dessous. Nous serons ravis de vous assister et de
+                répondre à vos attentes dans les meilleurs délais.</p>
+        </div>
+        <div class="contact_form">
+            <form action="#" method="post">
+                <h2>
+                    Contactez-nous
+                </h2>
+                <div>
+                    <input type="text" name="firstname" placeholder="Nom" required="true">
+                </div>
+                <div>
+                    <input type="text" name="lastname" placeholder="Prénom" required="true">
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="Email" required="true">
+                </div>
+                <div>
+                    <textarea name="message" placeholder="Message" required="true"></textarea>
+                </div>
+                <div>
+                    <button class="contact_button">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

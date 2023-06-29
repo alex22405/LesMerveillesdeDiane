@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Anniversaire{% endblock %}
+
+{% block body %}
+
+    <!--------------- BANNIERE ---------------->
+
+    {% include '_partials/_banner.html.twig' with {'title': 'Birthday Cake', 'banner_class': 'birthday_banner'} %}
+
+    <!--------------- MENU ---------------->
+    <section class="menu" id="menu">
+        <div class="menu_content">
+            <div class="menu_content_wrapper">
+                <div class="menu_content_box">
+                    <article>
+                        <img src="assets/img/birthday_03.png" alt="">
+                    </article>
+                </div>
+                <div>
+                    <h3>arc en ciel</h3>
+                </div>
+                <p>
+                    Description Gâteaux d'anniversaire
+                </p>
+            </div>
+            <div class="menu_content_wrapper">
+                <div class="menu_content_box">
+                    <article>
+                        <img src="assets/img/birthday_02.png" alt="">
+                    </article>
+                </div>
+                <div>
+                    <h3>feuille d'or</h3>
+                </div>
+                <p>
+                    Description Gâteaux d'anniversaire
+                </p>
+            </div>
+            <div class="menu_content_wrapper">
+                <div class="menu_content_box">
+                    <article>
+                        <img src="assets/img/birthday_01.png" alt="">
+                    </article>
+                </div>
+                <div>
+                    <h3>géode</h3>
+                </div>
+                <p>
+                    Description Gâteaux d'anniversaire
+                </p>
+            </div>
+    </section>
+{% endblock %}
