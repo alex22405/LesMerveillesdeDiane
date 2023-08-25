@@ -9,21 +9,23 @@
 
 
     <!--------------- MENU ---------------->
-    <section class="menu" id="menu">
+   <section class="menu" id="menu">
         <div class="menu_content">
+            {% for product in patisserieProducts %}
             <div class="menu_content_wrapper">
                 <div class="menu_content_box">
                     <article>
-                        <img src="assets/img/patisserie_01.png" alt="">
+                        <img src="{{ asset('/assets/img/products/' ~ product.images.first().name) }}" alt="{{ product.productName }}">
                     </article>
                 </div>
                 <div>
-                    <h3>MACARONS</h3>
+                    <h3>{{ product.productName }}</h3>
                 </div>
                 <p>
-                    Description
+                    {{ product.productDescription }}
                 </p>
             </div>
+            {% endfor %}
         </div>
     </section>
 {% endblock %}

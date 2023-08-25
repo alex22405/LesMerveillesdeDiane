@@ -1,14 +1,14 @@
 		<header>
 			<div class="logo">
-				<a href="#accueil_banner"><img class="logo_img" src="assets/img/logo.svg" alt=""></a>
+				<a href="{{ path('app_main') }}"><img class="logo_img" src="assets/img/logo.svg" alt=""></a>
 			</div>
 			<div class="menuToggle" onclick="toggleMenu();"></div>
 			<ul class="navigation">
 				<li>
-					<a href="#accueil_banner">Accueil</a>
+					<a href="{{ path('app_main') }}">Accueil</a>
 				</li>
 				<li>
-					<a href="#mission">À propos</a>
+					<a href="{{ path('app_main') }}#mission_div">À propos</a>
 				</li>
 				<li>
 					<a href="">Nos produits</a>
@@ -30,5 +30,13 @@
 				<li>
 					<a href="{{ path('app_contact') }}">Contact</a>
 				</li>
+				{% if is_granted('ROLE_ADMIN')%}
+				<li>
+					<a href="{{ path('admin_index') }}">Administration</a>
+				</li>
+				<li>
+					<a href="{{ path('app_logout') }}">Déconnexion</a>
+				</li>
+				{% endif %}
 			</ul>
 		</header>

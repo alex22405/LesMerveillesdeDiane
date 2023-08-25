@@ -20,99 +20,23 @@
                 vos papilles.
             </p>
         </div>
+   <section class="menu" id="menu">
         <div class="menu_content">
-            <!-- <div class="menu_content_box"> -->
+            {% for product in mariageProducts %}
             <div class="menu_content_wrapper">
                 <div class="menu_content_box">
                     <article>
-                        <img src="assets/img/wedding_01.png" alt="">
+                        <img src="{{ asset('/assets/img/products/' ~ product.images.first().name) }}" alt="{{ product.productName }}">
                     </article>
                 </div>
                 <div>
-                    <h3>Mariage</h3>
+                    <h3>{{ product.productName }}</h3>
                 </div>
                 <p>
-                    Description Gâteaux de mariage
+                    {{ product.productDescription }}
                 </p>
             </div>
-            <div class="menu_content_wrapper">
-                <div class="menu_content_box">
-                    <article>
-                        <img src="assets/img/wedding_02.png" alt="">
-                    </article>
-                </div>
-                <div>
-                    <h3>Mariage</h3>
-                </div>
-                <p>
-                    Description Gâteaux de mariage
-                </p>
-            </div>
-            <div class="menu_content_wrapper">
-                <div class="menu_content_box">
-                    <article>
-                        <img src="assets/img/wedding_03.png" alt="">
-                    </article>
-                </div>
-                <div>
-                    <h3>Mariage</h3>
-                </div>
-                <p>
-                    Description Gâteaux de mariage
-                </p>
-            </div>
-            <div class="menu_content_wrapper">
-                <div class="menu_content_box">
-                    <article>
-                        <img src="assets/img/wedding_04.png" alt="">
-                    </article>
-                </div>
-                <div>
-                    <h3>Mariage</h3>
-                </div>
-                <p>
-                    Description Gâteaux de mariage
-                </p>
-            </div>
-            <div class="menu_content_wrapper">
-                <div class="menu_content_box">
-                    <article>
-                        <img src="assets/img/wedding_05.png" alt="">
-                    </article>
-                </div>
-                <div>
-                    <h3>Mariage</h3>
-                </div>
-                <p>
-                    Description Gâteaux de mariage
-                </p>
-            </div>
-            <div class="menu_content_wrapper">
-                <div class="menu_content_box">
-                    <article>
-                        <img src="assets/img/wedding_06.png" alt="">
-                    </article>
-                </div>
-                <div>
-                    <h3>Mariage</h3>
-                </div>
-                <p>
-                    Description Gâteaux de mariage
-                </p>
-            </div>
-            <div class="menu_content_wrapper">
-                <div class="menu_content_box">
-                    <article>
-                        <img src="assets/img/wedding_07.png" alt="">
-                    </article>
-                </div>
-                <div>
-                    <h3>Mariage</h3>
-                </div>
-                <p>
-                    Description Gâteaux de mariage
-                </p>
-            </div>
+            {% endfor %}
         </div>
     </section>
 {% endblock %}

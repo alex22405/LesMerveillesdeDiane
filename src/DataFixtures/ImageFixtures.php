@@ -2,16 +2,24 @@
 
 namespace App\DataFixtures;
 
-use Doctrine\Bundle\FixturesBundle\Fixture;
+use Faker\Factory;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 
 class ImageFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
+        // $faker = Factory::create('fr_FR');
 
-        $manager->flush();
+        //  for($img = 1; $img <=100; $img++){
+        //     $image = new Images();
+        //     $image->setName($faker->image(null, 640, 480));
+        //     $product = $this->getReference('prod-'.rand(1, 10));
+        //     $image->setProducts($product);
+        //     $manager->persist($image);
+        //  }
+
+        // $manager->flush();
     }
 }

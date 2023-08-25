@@ -105,7 +105,6 @@ header .navigation .product_menu {
 }
 
 header .navigation .product_menu li {
-    float: none;
     list-style-type: none;
     margin: 0;
     padding: 5px;
@@ -180,21 +179,21 @@ header .navigation li:hover .product_menu {
 }
 
 .patisserie_banner {
-    background: url(../img/banner_02.jpg);
+    background: url(../img/banner_7.jpg);
     background-size: cover;
     background-position: top;
 }
 
 .boulangerie_banner {
-    background: url(../img/banner_03.jpg);
+    background: url(../img/banner_8.jpg);
     background-size: cover;
     background-position: center;
 }
 
 .birthday_banner {
-    background: url(../img/banner_05.png);
+    background: url(../img/banner_5.jpg);
     background-size: cover;
-    background-position: bottom;
+    background-position: center;
 }
 
 /* ---------------- MENUS ---------------- */
@@ -696,3 +695,36 @@ form textarea {
 .contact_button:active {
     top: 2px;
 }
+
+/* CSS pour les appareils mobiles */
+@media screen and (max-width: 768px) {
+    .contact_form {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .contact_text {
+        margin: 10px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    form {
+        max-width: none;
+    }
+
+    form h2,
+    input,
+    textarea,
+    .contact_button {
+        margin: 5px;
+        padding: 5px;
+        width: 100%;
+    }
+
+    form textarea {
+        height: 15vh;
+    }
+}
+
+

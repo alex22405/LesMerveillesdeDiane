@@ -17,6 +17,9 @@ class Categories
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
+   
+    #[ORM\Column(length: 255)]
+    private ?int $categoryOrder = null;
 
     #[ORM\OneToMany(mappedBy: 'category_id', targetEntity: Products::class, orphanRemoval: true)]
     private Collection $products;
@@ -42,6 +45,19 @@ class Categories
 
         return $this;
     }
+
+    public function getCategoryOrder(): ?int
+    {
+        return $this->categoryOrder;
+    }
+
+    public function setCategoryOrder(int $categoryOrder): self
+    {
+        $this->categoryOrder = $categoryOrder;
+        return $this;
+    }
+
+
 
     /**
      * @return Collection<int, Products>

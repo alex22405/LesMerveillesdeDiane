@@ -1,4 +1,4 @@
-/*********************************************************************************************/
+console.log("bonjour");
 // Effet scroll nav
 window.addEventListener('scroll', function () {
     const header = document.querySelector('header');
@@ -42,18 +42,6 @@ function toggleMenu() {
 /*********************************************************************************************/
 
 const sr = ScrollReveal();
-
-// sr.reveal('.logo', {
-//     origin: 'top',
-//     distance: '30px',
-//     duration: 4000,
-// });
-
-// sr.reveal('.navigation', {
-//     origin: 'top',
-//     distance: '30px',
-//     duration: 4000
-// });
 
 sr.reveal('.accueil_menu_name', {
     origin: 'left',
@@ -113,55 +101,3 @@ sr.reveal('.contact_form', {
     duration: 4000,
     delay: 1000
 });
-
-// sr.reveal('.footer_container',{
-//     origin: 'bottom',
-//     distance: '50px',
-//     duration: 4000,
-// });
-
-
-// ---------- SMOOTH SCROLL ----------------
-
-
-// **********************************************************************************************
-
-// Apparition des fleurs
-// const imgs = document.querySelectorAll('img');
-// const TL = gsap.timeline({paused: true});
-// const header = document.querySelector('header')
-// TL
-// .staggerTo(imgs, {scale: 1, duration: 0.4, stagger:0.1});
-
-// header.addEventListener('mouseenter', () => {
-
-//    TL.play();
-// })
-// header.addEventListener('mouseout', () => {
-
-//    TL.reverse();
-// })
-
-
-
-
-// const flowers = document.querySelectorAll('.flw');
-// const header = document.querySelector('header');
-// const animationDuration = 0.4;
-
-// const tl = gsap.timeline({ paused: true });
-// tl.staggerTo(flowers, { scale: 1, duration: animationDuration, stagger: 0.1 });
-
-// flowers.forEach((flower) => {
-//   gsap.set(flower, { scale: 0 });
-// });
-
-// header.addEventListener('mouseenter', () => {
-//   tl.play();
-// });
-
-// header.addEventListener('mouseout', () => {
-//   tl.reverse();
-// });
-/*********************************************************************************************/
-
