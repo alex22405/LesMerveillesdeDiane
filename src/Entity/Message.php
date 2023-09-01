@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\MessageRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\MessageRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MessageRepository::class)]
 class Message
@@ -14,46 +15,52 @@ class Message
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $firstname = null;
+    #[ORM\Column(type: 'string', length: 50, nullable: true)]
+    #[Assert\Length(min: 2, max: 50)]
+    private ?string $fullName = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $lastname = null;
+    #[ORM\Column(type: 'string', length: 180)]
+    #[Assert\Email()]
+    #[Assert\Length(min: 2, max: 180)]
+    private ?string $email;
 
-    #[ORM\Column(length: 255)]
-    private ?string $email = null;
+    #[ORM\Column(type: 'string', length: 20, nullable: true)]
+    #[Assert\Length(min:8, max:50)]
+    private ?string $number = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $content = null;
+    #[ORM\Column(type: 'string', length: 100, nullable: true)]
+    #[Assert\Length(min: 2, max: 100)]
+    private ?string $subject = null;
+
+    #[ORM\Column(type: 'text')]
+    #[Assert\NotBlank()]
+    private string $message;
 
     #[ORM\ManyToOne(inversedBy: 'messages')]
     private ?Admin $admin_id = null;
+
+    #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\NotNull()]
+    private ?\DateTimeImmutable $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getFirstname(): ?string
+    public function getFullName(): ?string
     {
-        return $this->firstname;
+        return $this->fullName;
     }
 
-    public function setFirstname(string $firstname): static
+    public function setFullName(string $fullName): static
     {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    public function getLastname(): ?string
-    {
-        return $this->lastname;
-    }
-
-    public function setLastname(string $lastname): static
-    {
-        $this->lastname = $lastname;
+        $this->fullName = $fullName;
 
         return $this;
     }
@@ -70,17 +77,43 @@ class Message
         return $this;
     }
 
-    public function getContent(): ?string
+
+    public function getNumber(): ?string
     {
-        return $this->content;
+        return $this->number;
     }
 
-    public function setContent(string $content): static
+    public function setNumber(?string $number): self
     {
-        $this->content = $content;
+        $this->number = $number;
 
         return $this;
     }
+
+    public function getSubject(): ?string
+    {
+        return $this->subject;
+    }
+
+    public function setSubject(string $subject): static
+    {
+        $this->subject = $subject;
+
+        return $this;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+
+    public function setMessage(string $message): self
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
 
     public function getAdminId(): ?Admin
     {
@@ -90,6 +123,18 @@ class Message
     public function setAdminId(?Admin $admin_id): static
     {
         $this->admin_id = $admin_id;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): static
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

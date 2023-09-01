@@ -124,6 +124,18 @@ header .navigation li:hover .product_menu {
     display: block;
 }
 
+.admin_bo
+{
+    border: 2px solid;
+    overflow: hidden;
+}
+
+.admin_logout
+{
+    border: 2px solid;
+    overflow: hidden;
+}
+
 
 /* ------------- ACCUEIL BANNIERE -------------- */
 
@@ -133,7 +145,7 @@ header .navigation li:hover .product_menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(../img/back1.jpg);
+    background: url(../img/back7.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -173,7 +185,7 @@ header .navigation li:hover .product_menu {
 
 /* ----------------- ALL BANNERS BACKGROUND --------------------- */
 .wedding_banner {
-    background: url(../img/banner_04.png);
+    background: url(../img/banner_3.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -277,7 +289,7 @@ p {
 }
 
 .menu_content_box article img:hover {
-    transform: scale(1.05);
+    transform: scale(1.15);
 }
 
 /* ------------- NOTRE MISSION et VALEURS -------------- */
@@ -726,5 +738,3 @@ form textarea {
         height: 15vh;
     }
 }
-
-

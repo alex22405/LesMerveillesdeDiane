@@ -8,19 +8,36 @@
     {% include '_partials/_banner.html.twig' with {'title': 'Wedding Cake', 'banner_class': 'wedding_banner'} %}
 
     <!--------------- MENU ---------------->
-    <section class="menu" id="menu">
+   <section class="menu" id="menu">
         <div class="menu_description">
             <h1>Mariage</h1>
-            <p>Nous vous proposons une expérience gustative inoubliable, où chaque tranche est un témoignage de notre
-                engagement envers la qualité supérieure. Nous mettons un point d'honneur à sélectionner avec soin les
-                meilleurs ingrédients pour nos créations sucrées.
-                Chaque gâteau de mariage est confectionné avec des produits de première qualité, provenant de sources
-                fiables et respectueuses. Des ingrédients frais et de saison, des chocolats fins, des fruits juteux et
-                des épices exquises se réunissent pour donner naissance à des saveurs harmonieuses qui émerveilleront
-                vos papilles.
+            <p>Dans l'univers enchanté du mariage, chaque instant est précieux, et chaque bouchée devrait être mémorable. Notre collection de gâteaux de mariage est bien plus qu'une simple douceur ; c'est une symphonie de saveurs élégantes et raffinées. Nous croyons en l'art de la pâtisserie et utilisons uniquement les ingrédients les plus prestigieux pour créer des créations sucrées d'une beauté exceptionnelle. Du chocolat velouté aux fruits les plus frais, chaque gâteau est une œuvre d'art comestible qui incarne le luxe et l'amour. Laissez-nous vous emmener dans un voyage gustatif exceptionnel pour votre journée spéciale.
             </p>
         </div>
-   <section class="menu" id="menu">
+        <h1 class="page-title">Saveurs et Ingrédients</h1>
+        <table class="cake-table">
+            <thead>
+                <tr class="table-header">
+                    <th>Saveur</th>
+                    <th>Ingrédients</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-row">
+                    <td class="cake-flavor">Vanille</td>
+                    <td class="cake-ingredients">Farine, sucre, œufs, vanille</td>
+                </tr>
+                <tr class="table-row">
+                    <td class="cake-flavor">Chocolat</td>
+                    <td class="cake-ingredients">Farine, sucre, œufs, cacao</td>
+                </tr>
+                <tr class="table-row">
+                    <td class="cake-flavor">Fraise</td>
+                    <td class="cake-ingredients">Farine, sucre, œufs, fraises</td>
+                </tr>
+                <!-- Ajoutez d'autres lignes ici -->
+            </tbody>
+        </table>
         <div class="menu_content">
             {% for product in mariageProducts %}
             <div class="menu_content_wrapper">

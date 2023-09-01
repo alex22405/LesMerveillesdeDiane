@@ -3,3 +3,6 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+admin_contact_messages:
+    path: /admin/contact/messages
+    controller: App\Controller\Admin\MessageController::showContactMessages
