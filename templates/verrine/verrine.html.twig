@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Verrines{% endblock %}
+
+{% block body %}
+    <!--------------- BANNIERE ---------------->
+
+    {% include '_partials/_banner.html.twig' with {'title': 'Verrines', 'banner_class': 'verrine_banner'} %}
+
+    <!--------------- MENU ---------------->
+   <section class="menu" id="menu">
+        <div class="menu_description">
+            <h1>Verrines</h1>
+            <p>
+            </p>
+        </div>
+        <div class="menu_content">
+            {% for product in boulangerieProducts %}
+            <div class="menu_content_wrapper">
+                <div class="menu_content_box">
+                    <article>
+                        <img src="{{ asset('/assets/img/products/' ~ product.images.first().name) }}" alt="{{ product.productName }}">
+                    </article>
+                </div>
+                <div>
+                    <h3>{{ product.productName }}</h3>
+                </div>
+                <p>
+                    {{ product.productDescription }}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

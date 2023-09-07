@@ -16,6 +16,8 @@
     --card_border: 10px;
     --shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     --space: 80px;
+    --fstitle:;
+    --fstext:;
 }
 
 * {
@@ -204,6 +206,12 @@ header .navigation li:hover .product_menu {
 
 .birthday_banner {
     background: url(../img/banner_5.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.verrine_banner {
+    background: url(../img/banner_9.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -737,4 +745,32 @@ form textarea {
     form textarea {
         height: 15vh;
     }
+}
+
+
+
+.page-title {
+    text-align: center;
+    color: #e3939e;
+    margin-top: 20px;
+}
+
+.cake-table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+    background-color: #f7f4e6;
+    color: #d88074;
+}
+
+.table-header {
+    background-color: #ebdbbe;
+}
+
+.table-row {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
