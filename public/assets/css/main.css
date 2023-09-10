@@ -16,8 +16,15 @@
     --card_border: 10px;
     --shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     --space: 80px;
-    --fstitle:;
-    --fstext:;
+    --fstitle: 5em;
+    --fstext: 1em;
+    --fstitlesection: 3.5em;
+    --fssmalltitle: 1.8em;
+}
+
+p
+{
+    font-size: var(--fstext);
 }
 
 * {
@@ -153,7 +160,7 @@ header .navigation li:hover .product_menu {
 }
 
 .accueil_banner_content_title {
-    font-size: 5em;
+    font-size: var(--fstitle);
     text-transform: uppercase;
     letter-spacing: 5px;
     font-weight: 400;
@@ -177,7 +184,7 @@ header .navigation li:hover .product_menu {
 }
 
 .banner_content_titleText {
-    font-size: 5em;
+    font-size: var(--fstitle);
     text-transform: uppercase;
     letter-spacing: 5px;
     font-weight: 400;
@@ -224,7 +231,7 @@ header .navigation li:hover .product_menu {
 
 .menu_banner .accueil_titleText {
     margin-left: 30px;
-    font-size: 3.5rem;
+    font-size: var(--fstitlesection);
 }
 
 .menu_banner p {
@@ -242,7 +249,7 @@ header .navigation li:hover .product_menu {
 .menu_description h1 {
     padding: 10px;
     text-transform: uppercase;
-    font-size: 50px;
+    font-size: var(--fstitlesection);
     text-align: center;
 }
 
@@ -270,7 +277,7 @@ p {
 }
 
 .menu_content_wrapper h3 {
-    font-size: 1.7em;
+    font-size: var(--fssmalltitle);
     text-transform: uppercase;
     font-weight: 400;
     margin-top: 22px;
@@ -300,6 +307,20 @@ p {
     transform: scale(1.15);
 }
 
+/* Pour les écrans de tablette (par exemple, largeur maximale de 768px), utilisez une grille de 2 colonnes */
+@media screen and (max-width: 768px) {
+    .menu_content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Pour les écrans de téléphone portable (par exemple, largeur maximale de 576px), utilisez une seule colonne */
+@media screen and (max-width: 576px) {
+    .menu_content {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 /* ------------- NOTRE MISSION et VALEURS -------------- */
 
 .accueil_mission_div {
@@ -314,9 +335,13 @@ p {
 }
 
 .accueil_titleText {
-    font-size: 35px;
+    font-size: var(--fssmalltitle);
     font-weight: 300;
     margin-left: 10px;
+}
+
+.accueil_mission_text{
+    font-family: 'Fira sans';
 }
 
 .accueil_mission_div p {
@@ -387,7 +412,7 @@ footer {
 
 footer p {
     max-width: 25em;
-    font-size: 0.9em;
+    font-size: var(--fstext);
     line-height: 25px;
     margin: 0 auto;
 }
@@ -496,6 +521,7 @@ a {
 
 /* -----------------ACCUEIL MEDIA QUERIES-------------------- */
 @media screen and (max-width:991px) {
+
     /* <!--------------- NAVBAR ----------------> */
 
     .logo {
@@ -558,62 +584,7 @@ a {
         padding: 150px;
     }
 
-    /* <!--------------- BANNIERE ----------------> */
-
-    .accueil_banner_content_title {
-        font-size: 3em;
-        color: pink;
-    }
-
-    .banner_content_slogan {
-        margin-top: 70px;
-    }
-
-    /* <!--------------- NOTRE MISSION ----------------> */
-
-    .accueil_mission {
-        flex-direction: column;
-    }
-
-    .accueil_mission_div_col50 {
-        position: relative;
-        width: 100%;
-    }
-
-    .accueil_mission_div_col50 .imgBx {
-        height: 300px;
-        margin-top: 20px;
-    }
-
-
-    /* <!--------------- MENU ----------------> */
-
-    .menu_banner {
-        margin-top: 20px;
-    }
-
-    .menu_content_box {
-        margin: 10px;
-    }
-
-    .accueil_titleText {
-        padding: 0;
-    }
-
-    .accueil_titleText {
-        font-size: 1.8em;
-        line-height: 1.5em;
-        margin-bottom: 15px;
-        font-weight: 300;
-    }
 }
-
-@media screen and (max-width: 480px) {
-    .accueil_banner .content h2 {
-        font-size: 2.2em;
-    }
-}
-
 /* _____________________________________________________________________________________ */
 
 
@@ -748,29 +719,35 @@ form textarea {
 }
 
 
+/* -------------MEDIA QUERIES TEXT------------- */
 
-.page-title {
-    text-align: center;
-    color: #e3939e;
-    margin-top: 20px;
+/* Média query pour les écrans de moins de 1200px (par exemple, MacBook Pro 13 pouces) */
+@media screen and (max-width: 1200px) {
+    :root {
+        --fstitle: 4em;
+        --fstext: 0.9em;
+        --fstitlesection: 3em;
+        --fssmalltitle: 1.6em;
+    }
 }
 
-.cake-table {
-    margin: 20px auto;
-    border-collapse: collapse;
-    width: 80%;
-    max-width: 800px;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
-    background-color: #f7f4e6;
-    color: #d88074;
+/* Média query pour les écrans de moins de 992px (par exemple, écrans plus petits) */
+@media screen and (max-width: 992px) {
+    :root {
+        --fstitle: 3.5em;
+        --fstext: 0.9em;
+        --fstitlesection: 2.5em;
+        --fssmalltitle: 1.4em;
+    }
 }
 
-.table-header {
-    background-color: #ebdbbe;
-}
+/* Vous pouvez ajouter d'autres médias queries en fonction de vos besoins */
 
-.table-row {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+/* Exemple de média query pour les écrans très petits, comme les smartphones */
+@media screen and (max-width: 576px) {
+    :root {
+        --fstitle: 2.5em;
+        --fstitlesection: 2em;
+        --fssmalltitle: 1.2em;
+    }
 }

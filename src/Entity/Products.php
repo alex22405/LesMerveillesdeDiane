@@ -25,6 +25,10 @@ class Products
         minMessage: 'Le nom doit faire au moins 5 caractères',
         maxMessage: 'Le nom ne doit pas dépasser plus de 200 caractères'
     )]
+    #[Assert\Regex(
+        pattern: '/^[a-zA-Z0-9\s\-_]+$/',
+        message: 'Le nom du produit ne peut contenir que des lettres, des chiffres, des espaces, des tirets et des underscores.'
+    )]
     private ?string $product_name = null;
 
     #[ORM\Column]
@@ -43,6 +47,9 @@ class Products
     #[ORM\OneToMany(targetEntity: Images::class, mappedBy: 'products', orphanRemoval: true, cascade: ["persist"])]
     private $images;
     
+    #[ORM\Column(type:"integer")]
+    private $prix;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -135,6 +142,18 @@ class Products
                 $image->setProducts(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPrix(): ?int
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(int $prix): self
+    {
+        $this->prix = $prix;
 
         return $this;
     }

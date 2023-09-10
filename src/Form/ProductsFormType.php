@@ -6,9 +6,11 @@ use App\Entity\Products;
 use App\Entity\Categories;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class ProductsFormType extends AbstractType
 {
@@ -17,8 +19,17 @@ class ProductsFormType extends AbstractType
         $builder
             ->add('product_name', options:[
                 'label' => 'Nom',
-                'required' => true
+                'required' => true,
+                'constraints' => [
+                    new Regex([
+                        'pattern' => '/^[a-zA-Z0-9\s\-_]+$/',
+                        'message' => 'Le nom du produit ne peut contenir que des lettres, des chiffres, des espaces, des tirets et des underscores.'
+                    ])],
             ])
+            ->add('prix', IntegerType::class, [ // IntegerType pour les nombres entiers
+                'label' => 'Prix en Franc Guinéen',
+                'required' => true
+                ])
             ->add('images', FileType::class, [
                     'label' => false,
                     'multiple' => true,

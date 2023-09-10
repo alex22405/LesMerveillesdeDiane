@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Anniversaire{% endblock %}
+{% block meta_description %}Découvrez notre sélection de délicieux gâteaux d'anniversaire faits sur mesure. Faites de chaque anniversaire une célébration mémorable avec nos créations sucrées.{% endblock %}
 
 {% block body %}
     <!--------------- BANNIERE ---------------->
@@ -22,10 +23,10 @@
                     </article>
                 </div>
                 <div>
-                    <h3>{{ product.productName }}</h3>
+                    <h3>{{ product.productName|e('html') }}</h3>
                 </div>
                 <p>
-                    {{ product.productDescription }}
+                    {{ product.productDescription|raw }}
                 </p>
             </div>
             {% endfor %}
