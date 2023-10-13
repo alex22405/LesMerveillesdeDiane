@@ -7,10 +7,11 @@ use App\Form\ContactType;
 use Symfony\Component\Mime\Email;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Mailer\MailerInterface;
 
 class MessageController extends AbstractController
 {
@@ -24,19 +25,19 @@ class MessageController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $contact = $form->getData();
 
+            $adress = $contact->getEmail();
+            $subject = $contact->getSubject();
+            $content = $contact->getMessage();
+
             $manager->persist($contact);
             $manager->flush();
 
             // Email
             $email = (new Email())
-            ->from('hello@example.com')
-            ->to('you@example.com')
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
-            ->subject('Time for Symfony Mailer!')
-            ->text('Sending emails is fun again!')
+            ->from($adress)
+            ->to('lesmerveillesdediane@gmail.com')
+            ->subject($subject)
+            ->text($content)
             ->html('<p>See Twig integration for better HTML integration!</p>');
 
             $mailer->send($email);
@@ -53,5 +54,16 @@ class MessageController extends AbstractController
             'controller_name' => 'MessageController',
             'form' => $form->createView(),
         ]);
+    }
+
+    #[Route('/message/{id}/delete', name: 'app_message_delete')]
+    public function delete(Message $message, EntityManagerInterface $entityManager): RedirectResponse
+    {
+        $entityManager->remove($message);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Le message a été supprimé avec succès.');
+
+        return $this->redirectToRoute('admin_messages');
     }
 }

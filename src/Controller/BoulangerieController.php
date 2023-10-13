@@ -20,7 +20,7 @@ class BoulangerieController extends AbstractController
         }
 
         // Trouver les produits de la catégorie "boulangerie"
-        $boulangerieProducts = $productsRepository->findBy(['category_id' => $boulangerieCategory]);
+        $boulangerieProducts = $productsRepository->findBy(['category' => $boulangerieCategory]);
 
         return $this->render('boulangerie/boulangerie.html.twig', [
             'boulangerieProducts' => $boulangerieProducts,

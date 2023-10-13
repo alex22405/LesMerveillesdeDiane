@@ -25,15 +25,15 @@ class ProductsTest extends TestCase
         $this->assertEquals($productDescription, $product->getProductDescription());
     }
 
-    public function testGetSetCategoryId()
+    public function testGetSetCategory()
     {
         $product = new Products();
         
         // Créer un objet Categories factice
         $category = new Categories();
 
-        $product->setCategoryId($category);
-        $this->assertEquals($category, $product->getCategoryId());
+        $product->setCategory($category);
+        $this->assertEquals($category, $product->getCategory());
     }
 
 

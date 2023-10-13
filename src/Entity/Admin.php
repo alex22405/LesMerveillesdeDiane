@@ -31,10 +31,10 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\OneToMany(mappedBy: 'admin_id', targetEntity: Products::class)]
+    #[ORM\OneToMany(mappedBy: 'admin', targetEntity: Products::class)]
     private Collection $products;
 
-    #[ORM\OneToMany(mappedBy: 'admin_id', targetEntity: Message::class)]
+    #[ORM\OneToMany(mappedBy: 'admin', targetEntity: Message::class)]
     private Collection $messages;
 
     public function __construct()

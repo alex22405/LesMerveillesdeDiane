@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\MessageRepository;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -37,7 +36,7 @@ class Message
     private string $message;
 
     #[ORM\ManyToOne(inversedBy: 'messages')]
-    private ?Admin $admin_id = null;
+    private ?Admin $admin = null;
 
     #[ORM\Column(type: 'datetime_immutable')]
     #[Assert\NotNull()]
@@ -117,12 +116,12 @@ class Message
 
     public function getAdminId(): ?Admin
     {
-        return $this->admin_id;
+        return $this->admin;
     }
 
-    public function setAdminId(?Admin $admin_id): static
+    public function setAdminId(?Admin $admin): static
     {
-        $this->admin_id = $admin_id;
+        $this->admin = $admin;
 
         return $this;
     }

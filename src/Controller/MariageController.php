@@ -20,7 +20,7 @@ class MariageController extends AbstractController
         }
 
         // Trouver les produits de la catégorie "mariage"
-        $mariageProducts = $productsRepository->findBy(['category_id' => $mariageCategory]);
+        $mariageProducts = $productsRepository->findBy(['category' => $mariageCategory]);
 
         return $this->render('mariage/mariage.html.twig', [
             'mariageProducts' => $mariageProducts,

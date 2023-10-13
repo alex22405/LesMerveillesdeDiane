@@ -20,7 +20,7 @@ class AnniversaireController extends AbstractController
         }
 
         // Trouver les produits de la catégorie "Anniversaire"
-        $anniversaireProducts = $productsRepository->findBy(['category_id' => $anniversaireCategory]);
+        $anniversaireProducts = $productsRepository->findBy(['category' => $anniversaireCategory]);
 
         return $this->render('anniversaire/anniversaire.html.twig', [
             'anniversaireProducts' => $anniversaireProducts,

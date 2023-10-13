@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ProductsRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Images;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ProductsRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProductsRepository::class)]
@@ -36,10 +37,10 @@ class Products
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: true)]
-    private ?Categories $category_id = null;
+    private ?Categories $category = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
-    private ?Admin $admin_id = null;
+    private ?Admin $admin = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $product_description = null;
@@ -79,26 +80,26 @@ class Products
         return $this;
     }
     
-    public function getCategoryId(): ?Categories
+    public function getCategory(): ?Categories
     {
-        return $this->category_id;
+        return $this->category;
     }
     
-    public function setCategoryId(?Categories $category_id): static
+    public function setCategory(?Categories $category): static
     {
-        $this->category_id = $category_id;
+        $this->category = $category;
         
         return $this;
     }
     
     public function getAdminId(): ?Admin
     {
-        return $this->admin_id;
+        return $this->admin;
     }
     
-    public function setAdminId(?Admin $admin_id): static
+    public function setAdminId(?Admin $admin): static
     {
-        $this->admin_id = $admin_id;
+        $this->admin = $admin;
         
         return $this;
     }
@@ -157,4 +158,5 @@ class Products
 
         return $this;
     }
+
 }

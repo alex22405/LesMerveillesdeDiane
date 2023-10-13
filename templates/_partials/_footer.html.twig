@@ -6,8 +6,6 @@
                 <span class="copyright">
                     &copy; Copyright 2023 Les Merveilles de Diane
                 </span>
-                <span class="developed_by">Développé par <a href="https://portfolio-alex22405.vercel.app/">Alexandre
-                        Vigon</a></span>
             </div>
             <div id="box2">
                 <p class="info">
@@ -21,10 +19,13 @@
                 <div class="footer_legal">
                     <h3>Conditions</h3>
                     <div>
-                        <a href="#">Mentions légales</a>
+                        <a href="{{ path('condition_generale_vente') }}">CGV</a>
                     </div>
                     <div>
-                        <a href="#">Politique de confidentialité</a>
+                        <a href="{{ path('mentions_legales') }}">Mentions légales</a>
+                    </div>
+                    <div>
+                        <a href="{{ path('politique_confidentialite') }}">Politique de confidentialité</a>
                     </div>
                 </div>
             </div>

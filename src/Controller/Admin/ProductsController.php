@@ -45,7 +45,6 @@ class ProductsController extends AbstractController
     #[Route('/add', name: 'admin_products_add')]
     public function add(Request $request, EntityManagerInterface $entityManager, PictureService $pictureService): Response
     {
-
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         // On crée un nouveau produit

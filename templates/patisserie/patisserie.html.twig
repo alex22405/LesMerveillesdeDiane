@@ -20,7 +20,11 @@
             <div class="menu_content_wrapper">
                 <div class="menu_content_box">
                     <article>
-                        <img src="{{ asset('/assets/img/products/' ~ product.images.first().name) }}" alt="{{ product.productName }}">
+                         {% if product.images is not empty %}
+                            <img src="{{ asset('/assets/img/products/' ~ product.images.first().name) }}" alt="{{ product.productName }}">
+                        {% else %}
+                            <p>Aucune image disponible</p>
+                        {% endif %}
                     </article>
                 </div>
                 <div>
@@ -29,6 +33,11 @@
                 <p>
                     {{ product.productDescription }}
                 </p>
+                <p>
+                    {{ product.prix }} GNF
+                </p>
+                <br>
+                <a href="" class="btn">Ajouter au panier</a>
             </div>
             {% endfor %}
         </div>

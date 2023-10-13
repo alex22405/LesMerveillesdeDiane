@@ -20,7 +20,7 @@ class PatisserieController extends AbstractController
         }
 
         // Trouver les produits de la catégorie "patisserie"
-        $patisserieProducts = $productsRepository->findBy(['category_id' => $patisserieCategory]);
+        $patisserieProducts = $productsRepository->findBy(['category' => $patisserieCategory]);
 
         return $this->render('patisserie/patisserie.html.twig', [
             'patisserieProducts' => $patisserieProducts,

@@ -1,45 +1,51 @@
-		<header>
-			<div class="logo">
-				<a href="{{ path('app_main') }}"><img class="logo_img" src="../assets/img/logo.png" alt=""></a>
-			</div>
-			<div class="menuToggle" onclick="toggleMenu();"></div>
-			<ul class="navigation">
+<header>
+	<div class="logo">
+		<a href="{{ path('app_main') }}"><img class="logo_img" src="../assets/img/logo.png" alt=""></a>
+	</div>
+	<div class="menuToggle" onclick="toggleMenu();"></div>
+	<ul class="navigation">
+		<li>
+			<a href="{{ path('app_main') }}">Accueil</a>
+		</li>
+		<li>
+			<a href="{{ path('app_main') }}#mission_div">À propos</a>
+		</li>
+		<li>
+			<a href="">Nos produits</a>
+			<ul class="product_menu">
 				<li>
-					<a href="{{ path('app_main') }}">Accueil</a>
-				</li>
-				<li>
-					<a href="{{ path('app_main') }}#mission_div">À propos</a>
-				</li>
-				<li>
-					<a href="">Nos produits</a>
-					<ul class="product_menu">
-						<li>
-							<a href="{{ path('app_mariage') }}">Gâteaux de mariage</a>
-						</li>
-						<li>
-							<a href="{{ path('app_anniversaire') }}">Gâteaux d'anniversaire</a>
-						</li>
-						<li>
-							<a href="{{ path('app_patisserie') }}">Pâtisseries</a>
-						</li>
-						<li>
-							<a href="{{ path('app_boulangerie') }}">Viennoiseries</a>
-						</li>
-					</ul>
+					<a href="{{ path('app_mariage') }}">Gâteaux de mariage</a>
 				</li>
 				<li>
-					{% if is_granted('ROLE_ADMIN') %}
-					{% else %}
-						<a href="{{ path('app_contact') }}">Contact</a>
-					{% endif %}
+					<a href="{{ path('app_anniversaire') }}">Gâteaux d'anniversaire</a>
 				</li>
-				{% if is_granted('ROLE_ADMIN')%}
-				<li class="admin_bo">
-					<a href="{{ path('admin_index') }}">Administration</a>
+				<li>
+					<a href="{{ path('app_patisserie') }}">Pâtisseries</a>
 				</li>
-				<li class="admin_logout">
-					<a href="{{ path('app_logout') }}">Déconnexion</a>
+				<li>
+					<a href="{{ path('app_boulangerie') }}">Viennoiseries</a>
 				</li>
-				{% endif %}
 			</ul>
-		</header>
+		</li>
+		<li>
+			{% if is_granted('ROLE_ADMIN') %}
+			{% else %}
+				<a href="{{ path('cart_index') }}">Panier</a>
+			{% endif %}
+		</li>
+		<li>
+			{% if is_granted('ROLE_ADMIN') %}
+			{% else %}
+				<a href="{{ path('app_contact') }}">Contact</a>
+			{% endif %}
+		</li>
+		{% if is_granted('ROLE_ADMIN')%}
+		<li class="admin_bo">
+			<a href="{{ path('admin_index') }}">Administration</a>
+		</li>
+		<li class="admin_logout">
+			<a href="{{ path('app_logout') }}">Déconnexion</a>
+		</li>
+		{% endif %}
+	</ul>
+</header>

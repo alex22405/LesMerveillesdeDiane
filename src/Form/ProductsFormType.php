@@ -40,7 +40,7 @@ class ProductsFormType extends AbstractType
                 'label' => 'Description',
                 'required' => true
             ])
-            ->add('category_id', EntityType::class, [
+            ->add('category', EntityType::class, [
                 'class' => Categories::class,
                 'choice_label' => 'name',
                 'label' => 'Catégorie'

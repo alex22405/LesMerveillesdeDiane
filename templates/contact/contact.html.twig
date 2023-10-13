@@ -3,11 +3,6 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-<br>
-<br>
-<br>
-<br>
-<br>
 <section class="contact">
     {% include "_partials/_flash.html.twig" %}
     <div class="contact_text">
@@ -17,6 +12,10 @@
             suggestions, veuillez remplir le formulaire ci-dessous. Nous serons ravis de vous assister et de
             répondre à vos attentes dans les meilleurs délais.</p>
     </div>
+<br>
+<br>
+<br>
+<br>
     <div class="contact_form">
         {{ form_start(form) }}
         {{ form_row(form.fullName) }}
@@ -28,5 +27,4 @@
         {{ form_end(form) }}
     </div>
 </section>
-
 {% endblock %}
